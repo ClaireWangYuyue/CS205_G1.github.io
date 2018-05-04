@@ -11,12 +11,11 @@ title: sudoku intro
 				<tr>
 					<td>
 					<p>
-					Sudoku is a combinatorial number placement puzzle. 
+					Sudoku is a combinatorial number placement puzzle.\n
+						
 					The objective of this game is to fill a 9×9 grid (board) with digits so that each column, 
-					each row, and each of the nine 3×3 subgrids (boxes) contains all of the digits from 1 to 9. 
-					Higher-rank sudokus usually have n<sup>2</sup>×n<sup>2</sup> board with n×n boxes (n>3). However, higher-rank sudokus take hours to run in serial. 
-						Thus, we aim to parallelize a sudoku solver algorithm with several parallelization techniques (OpenMP and MPI), 
-						so that giant sudoku solver can be solved within a limited time.
+					each row, and each of the nine 3×3 subgrids (boxes) contains all of the digits from 1 to 9. \n
+					
 					</p>
 					</td>
 					<td><img src="/CS205_G1.github.io/img/basic_sudoku.png" alt="basic_sudoku" width="150" height="150"></td>
@@ -26,14 +25,20 @@ title: sudoku intro
 		</div>
 		<div>
 			  <p class="subtitle">Giant Sudoku Problem</p> 
-				<ul>
-					<li>n<sup>2</sup>×n<sup>2</sup> board with n×n boxes (n>3) (e.g. 16*16, 25*25, 100*100)</li>
-					<li> Why do we need high throughput computing tools?
-					<ul>
-						<li> Execution time increases drastically with n </li>
-						<li> High-rank problems with a large number of empty cells can take hours or even days to solve 
-				 	</ul>
-				</ul>
+				
+			<p>
+			Higher-rank sudokus usually have n<sup>2</sup>×n<sup>2</sup> board with n×n boxes (n>3). (e.g. 16*16, 25*25, 100*100) \n
+			
+			However, high-rank problems with a large number of empty cells can take hours or even days to solve. 
+				Execution time will increase drastically with n.\n
+						
+			Thus, we aim to parallelize a sudoku solver algorithm with several parallelization techniques (OpenMP and MPI), 
+						so that giant sudoku solver can be solved within a limited time.\n
+					
+		
+						 
+			</p> 	
+				
 		</div>
                 <div>
 			  <p class="subtitle">Existing Solutions</p> 
