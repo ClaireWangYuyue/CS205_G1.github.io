@@ -32,7 +32,8 @@ nav .banner {
 }
 
 nav ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    /*font-family:'Helvetica', 'Arial', 'Sans-Serif';*/
+    font-family: 'Pangolin'
     padding: 0px;
     list-style: none;
     font-weight: bold;
