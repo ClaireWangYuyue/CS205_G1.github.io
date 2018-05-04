@@ -122,7 +122,7 @@ footer ul li {
 }
 .footer{
     /*margin-left:25%;*/
-    width: 60%;
+    width: 50%;
     position: fixed;
     background-color: #f1f1f1;
    bottom: 0;
@@ -133,5 +133,6 @@ footer ul li {
    padding: 0px;
 }
 .banner{
+    width: 60%;
     position: fixed;
 }
