@@ -25,7 +25,11 @@ a {
 a:hover {
     text-decoration: underline;
 }
-
+nav .banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
 nav ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
