@@ -15,9 +15,10 @@ title: sudoku intro
 					<br />
 						
 					The objective of this game is to fill a 9×9 grid (board) with digits so that each column, 
-					each row, and each of the nine 3×3 subgrids (boxes) contains all of the digits from 1 to 9. 
+						each row, and each of the nine 3×3 subgrids (boxes) contains all of the digits from 
+						1 to 9. A simple 9x9 Sudoku puzzle is shown on the right.
 					<br />
-					
+			
 					</p>
 					</td>
 					<td><img src="/CS205_G1.github.io/img/basic_sudoku.png" alt="basic_sudoku" width="150" height="150"></td>
@@ -29,15 +30,17 @@ title: sudoku intro
 			  <p class="subtitle">Giant Sudoku Problem</p> 
 				
 			<p>
-			Higher-rank sudokus usually have n<sup>2</sup>×n<sup>2</sup> board with n×n boxes (n>3). (e.g. 16*16, 25*25, 100*100)
+			Higher-rank sudokus usually have n<sup>2</sup>×n<sup>2</sup> board with n×n boxes (n>3). 
+				(e.g. 16*16, 25*25, 100*100)
 			<br />
 			
 			However, high-rank problems with a large number of empty cells can take hours or even days to solve. 
 				Execution time will increase drastically with n.
 			<br />
 						
-			Thus, we aim to parallelize a sudoku solver algorithm with several parallelization techniques (OpenMP and MPI), 
-						so that giant sudoku solver can be solved within a limited time.
+			Thus, we aim to parallelize a sudoku solver algorithm with several parallelization techniques,
+				namely OpenMP and MPI, so that any giant sudoku can be solved within a reasonable amount
+				of time.
 			<br />
 					
 		
@@ -49,11 +52,9 @@ title: sudoku intro
 			  <p class="subtitle">Existing Solutions</p> 
 			<p>
 			We have done research about this problem in depth. 
-				Previous work on implementation of 
-				OpenMP was found and the theoretical speedup of Sudoku solver with OpenMP 
-				is linear. However, only academic paper on MPI exists, no implementation was found.
-				
-				
-			
+				Researchers in other institutions have implemented an OpenMP version of Sudoku Solvers
+				even though there is no existing code available online. The theoretical speedup of Sudoku 
+				solver with OpenMP is linear. We only found theoretical algorithm on the MPI implementation, 
+				but we did not use it in our Sudoku solver.
 			</p>
 		</div>
