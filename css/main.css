@@ -119,9 +119,10 @@ footer ul li {
 .clearfix:after {
     clear: both;
 }
-.footer{
+div footer p{
+    margin-left:27%;
     position: fixed;
-   left: 0;
+    background-color: #f1f1f1;
    bottom: 0;
    font-size: 1.2em;
    width: 100%;
