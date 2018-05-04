@@ -15,7 +15,7 @@ div{
 
 ul li {
     padding: 5px 0px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 
@@ -35,7 +35,7 @@ nav .banner {
 
 nav ul {
     /*font-family:'Helvetica', 'Arial', 'Sans-Serif';*/
-    font-family: 'Skranji'
+    font-family: 'Skranji',cursive;
     padding: 0px;
     list-style: none;
     font-weight: bold;
@@ -74,8 +74,8 @@ h1 {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
-    font-size: 1.5em;
-    line-height: 1.4em;
+    font-size: 1.2em;
+    line-height: 1em;
     color: #000;
 }
 p.subtitle{
@@ -85,7 +85,7 @@ p.subtitle{
 
 p.plot_caption{
     font-family: Tahoma;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 /*footer {
@@ -133,7 +133,7 @@ footer ul li {
     position: fixed;
     background-color: #f1f1f1;
    bottom: 0;
-   font-size: 0.8em;
+   font-size: 0.6em;
    /*width: 100%;*/
    color: white;
    text-align: center;
