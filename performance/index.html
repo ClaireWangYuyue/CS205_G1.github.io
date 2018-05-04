@@ -27,19 +27,32 @@ title: performance
 							  <li>For easier problems, the speedup is slightly lower but still impressive</li>
 							</ul>
 			<p class="subtitle">MPI + OpenMP Performance</p>
-			
-				<img src="/CS205_G1.github.io/img/mpi_openmp_no_shuffle.jpeg" alt="mpi_speedup" width="40%">
-				<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle.jpeg" alt="mpi_speedup" width="40%">
-			<p class="plot_title"> MPI + OpenMP Speedup with orderly (left) and shuffled (left) task fetching and  from the dequeue </p>
+			<p class="plot_title"> Speedup of Shuffle vs No Shuffle</p>
+			<table>
+				<tr>
+					<td>
+						<img src="/CS205_G1.github.io/img/mpi_openmp_no_shuffle.jpeg" alt="mpi_speedup" width="80%">
+					</td>
+					<td>
+						<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle.jpeg" alt="mpi_speedup" width="80%">
+					</td>
+				</tr>
+			</table>
 				
-			<p class="plot_title"> Effect of including shuffling</p>
-				<img src="/CS205_G1.github.io/img/mpi_openmp_compare.jpg" alt="mpi_speedup_comparison" width="80%">
+			<p class="plot_title"> Effect of Shuffling and Dynamic Scheduling</p>
+				<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle_compare.jpeg" alt="mpi_speedup" width="80%">
 	
 			<p class="subtitle">Conclusions</p>
 				<ul>
 					<li>The serial solver guarantees to find a solution but is very slow in terms of the execution time</li>
-					<li>The main difficulty in parallelizing the Sudoku solver is balancing the workload assigned to each worker</li>
-					<li>OpenMP with Dynamic scheduling achieves sublinear to linear speedup </li>
-					<li>Current MPI implementation cannot balance workload dynamically, thus the speedup on multi-node architectures is still limited</li>
+					<li>The main difficulty in parallelizing the Sudoku solver is balancing the workload assigned 
+						to each worker</li>
+					<li>OpenMP with dynamic scheduling achieves sublinear to linear speedup </li>
+					<li>For MPI+OpenMP with static scheduling, shuffling the deque of boards before dispatching 
+						to each worker node greatly improves performance </li>
+					<li>Generally, we observed that dynamic scheduling yield the highest speedup</li>
+					<li>The speedup is not linear mostly due to the high communication costs between the nodes</li>
+					<li>Do not forget that we only have 7 worker nodes for dynamic scheduling. The master nodes
+						is constantly querying the status of the slave nodes and assign new jobs to the idle nodes.</li>
 				</ul>
-  </div>
+                  </div>
