@@ -89,12 +89,12 @@ p {
 }
 p.subtitle{
     font-family: Tahoma;
-    font-size: 3em;
+    font-size: 1em;
 }
 
 p.plot_caption{
     font-family: Tahoma;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 /*footer {
