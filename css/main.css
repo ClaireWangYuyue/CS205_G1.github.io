@@ -16,13 +16,14 @@ div{
 
 .container{
     height: 70%;
-    margin-top: 15%;
+    margin-top: 10%;
+    margin-bottom: 7%;
 }
 .banner {
     position: fixed;
     top: 0;
     width: 85%;
-    height: 30%;
+    height: 20%;
 }
 
 ul li {
