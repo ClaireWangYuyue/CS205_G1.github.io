@@ -22,7 +22,7 @@ div{
 .banner {
     position: fixed;
     top: 0;
-    width: 85%;
+    width: 100%;
     height: 20%;
 }
 
@@ -49,7 +49,7 @@ nav ul {
     font-weight: bold;
     list-style-type: none;
     margin: 0;
-    width: 20%;
+    width: 15%;
     background-color: #d8d8d8;
     position: fixed;
     height: 80%;
@@ -154,7 +154,4 @@ footer ul li {
    padding: 0px;
    height: 5%;
 }
-/*xmp{
-    margin-left: 15%;
-}*/
 
