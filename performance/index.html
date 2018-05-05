@@ -5,7 +5,6 @@ title: performance
 
 <div>
 <h1>Performance of Our Program</h1>
-<p>What is the performance of your code? What speedup and efficiency did you achieve? What optimizations did you implement to achieve this speedup?</p>
 <p class="subtitle">OpenMP Performance</p>
 	<table>
 		<tr>
@@ -52,7 +51,7 @@ title: performance
 <p class="subtitle">Discussion</p>
 	<p> Our serial solver guarantees to find a solution but is very slow in terms of the execution time. 
 		Achieving good speedup will help us to find solutions in a much shorter amount of time. 
-	</br>
+	</br></br>
             The main difficulty in parallelizing the Sudoku solver is balancing the workload assigned to each 
                 worker. Our bootstrapping methods tends to push partially filled boards with similar solving 
                 complexity to nearby places in the deque. Therefore, it is very likely that some worker will 
@@ -67,7 +66,7 @@ title: performance
                 essentially only 7 nodes are working in the dynamic scheduling case. It is very impressive that 
                 dynamic scheduling can outperform the other settings. The speedup is not linear mostly due to the 
                 high communication costs between the nodes. 
-        </br>
+        </br></br>
            Adding shuffling to MPI dynamic scheduling slows our parallized solver. The main reason is that shuffling
                 and dynamic scheduling have similar functionalities. Dynamic scheduling already solved the problem
                 of load balancing, and shuffling cannot do much. Furthermore, it takes time to shuffle the deque, and
