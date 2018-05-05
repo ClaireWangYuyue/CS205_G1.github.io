@@ -20,7 +20,7 @@ div{
     margin-bottom: 7%;
 }
 .banner {
-    font-size: 2em;
+    font-size: 2.5em;
     position: fixed;
     background-image: url("/CS205_G1.github.io/img/gas-card-giveaway-web-banner-back-image.jpg");
     background-repeat: no-repeat;
@@ -56,10 +56,10 @@ nav ul {
     margin: 0;
     width: 18%;
     text-align: center;
-    background-color: #d8d8d8;
+    background-color: #f2f2f2;
     position: fixed;
     height: 80%;
-    top: 15%;
+    top: 20%;
     font-size: 1.2em;
     /*overflow: auto;*/
     /*float: left;*/
