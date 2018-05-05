@@ -21,6 +21,8 @@ title: performance
 			</td>
 		</tr>
 	</table>
+	<p> We tested our OpenMP version solver on one AWS t2.2xlarge instance. We experimented with 2, 4, 6 
+		and 8 threads to check its speedup. </p>
 	<p> Our implementation for the OpenMP version achieves sublinear to linear speedup. Especially for 
 		complex Sudoku puzzles, the speedup is linear, which meets our expectation. For easier problems, 
 		the speedup is not as good, but still impressive. </p>
@@ -37,6 +39,8 @@ title: performance
 		</td>
 	</tr>
 </table>
+	<p> AWS t2.2xlarge instances are used for testing the MPI version. Here we tried 2, 4 and 8 nodes with 8 
+		threads on each node to check the impact of shuffling. </p>
 	<p> Without shuffling, the speedup of MPI plus OpenMP version varies a lot. We observe high correlation 
 		between speedup and problem solving path, we will discuss it in detail in the last section on 
 		this page. Shuffling greatly improves the speedup. In the best case scenario, the speedup jumps 
@@ -44,6 +48,8 @@ title: performance
 
 <p class="plot_title"> Effect of Shuffling and Dynamic Scheduling</p>
 	<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle_compare.jpeg" alt="mpi_speedup" width="80%">
+	<p> We tested different settings of our MPI+OpenMP version Sudoku solver on 8 AWS t2.2xlarge 
+		instances. Each node has 8 threads. </p>
 	<p> In general, we observed that dynamic scheduling without shuffling yields the highest speedup. 
 		Dynamic scheduling with shuffling is better than static scheduling with shuffling for 
 		simpler problems. Static scheduling with shuffling tends to perform well for complex problems.</p>
