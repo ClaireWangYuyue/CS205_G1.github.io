@@ -15,6 +15,7 @@ div{
 
 .container{
     height: 70%;
+    /*top: 15%;*/
 }
 .banner {
     position: fixed;
