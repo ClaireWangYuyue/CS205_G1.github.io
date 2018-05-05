@@ -26,12 +26,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
-nav .banner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80%;
-}
+
 
 nav ul {
     /*font-family:'Helvetica', 'Arial', 'Sans-Serif';*/
@@ -140,6 +135,12 @@ footer ul li {
    padding: 0px;
    height: 10%;
 }
-.container{
+div .container{
+    height: 70%;
+}
+nav .banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
     height: 80%;
 }
