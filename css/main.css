@@ -27,9 +27,9 @@ div{
     background-position: 100% 60%;*/
     background-color: #1db0b8;
     text-align: center;
-    /*top: 0;*/
+    top: 0;
     width: 90%;
-    height: 23%;
+    height: 25%;
 }
 
 ul li {
