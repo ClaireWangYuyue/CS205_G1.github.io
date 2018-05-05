@@ -5,7 +5,7 @@ title: model
 <div>
 	<h1>Data Description</h1>
 	<p> We found three 16x16 and three 25x25 Sudoku puzzles with different difficulty levels 
-		to test our software and compute speedup. All the problem are found on line. We
+		to test our software and compute speedup. All the problem are found online. We
 		manually take out a few cells from the solution board to adjust problem difficulty.</p>
 
 
@@ -45,11 +45,11 @@ At the i-th empty cell on the board:
 			<img src="/CS205_G1.github.io/img/omp_chart.png" alt="omp" width="600">
 			<ul >
 			  <li>Serially generate a list of incomplete solutions through bootstrapping:
-				fill a few empty cells with all possible values, and generate a shared deque of
+				fill a few empty cells with all possible values, and generate a shared queue of
 				possible board to be solved by each thread</li>
 			  <li>Each thread solve the boards in parallel with the backtracking algorithm</li>
 			  <li>Use dynamic scheduling to balance work load on all threads: each thread
-				will pop a new board from the deque to solve when it finished solving the previous board</li>
+				will pop a new board from the queue to solve when it finished solving the previous board</li>
 			</ul>
 
 
@@ -72,10 +72,10 @@ At the i-th empty cell on the board:
 	
 	        <p class="subtitle">Advanced Feature</p>
 	                <ul>
-				<li>Random shuffle: shuffle the deque of boards before dispatching to each
+				<li>Random shuffling: The queue of boards is shuffled before dispatching to each
 					node. This will make sure that the work load of each node is relatively
 					balanced, and no node waits a long time for other nodes to finish.</li>
-				<li>MPI Dynamic Scheduling</li>
+				<li>MPI Dynamic Scheduling: The master node and the slave nodes all keeps iterating throughout the process. However, within each iteration they do different jobs. A master-node iteration consists of a query to the slave-nodes status and a work assigment to the idle. A slave-node iteration consists of a report of idleness, a reception of the assigned work and the process of that work. Once the master node has assigned the last piece of work, it broadcasts the stopping message and wait till all slaves stop. Non-blocking MPI communication functionalities are applied to implement this feature.
 	                </ul>
 	<p> Our documentation for the source code is on this page: <a href="/CS205_G1.github.io/documentation" style="color: blue">documentation</a>. 
 		Please click on the "Classes" tab to see the details of all classes we created.</p>
