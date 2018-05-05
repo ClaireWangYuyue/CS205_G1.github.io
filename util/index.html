@@ -3,48 +3,66 @@ layout: default
 title: util
 ---
 
-		<div class="util">
-			<h1>How to Use our Program to Solve Giant Sudoku?</h1>
-			<h2> Download Source Code </h2>
-				<p>To run our sudoku solver, first download our <a href="https://github.com/shiyunqiu/CS205_Sudoku" style="color: blue">source code</a>.</p>
-			<h2>Set Up</h2>
-				<p>As our program requires OpenMP and MPI, we recommend using AWS to run our code. To set up OpenMP and MPI on AWS, we followed the guides provided by CS205: <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf" style="color: blue">OpenMP</a>  and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf" style="color:blue">MPI</a>.
-				<p>After connecting to the AWS instance, copy the source code and test cases from local to the AWS instance using the following command:</p>
-				<xmp>scp -i [key] [source code] [AWS Public IP]</xmp>
-				<p>For example, in our case, the command would be:</p>
-				<xmp>scp -i ~/.ssh/cs205­key.pem code/* ubuntu@ec2­18­218­17­64.us­east­2.compute.amazonaws.com:</xmp>
-				<p>Then go back to the instance and do sudo apt-get update. You should make sure you have installed the following packages:</p>
-				<xmp>sudo apt-get install g++</xmp>
-				<xmp>sudo apt-get install build-essential</xmp>
-			<h2>Run</h2>
-				<p>We prepared a <span style="background-color: #E2F3F2">Makefile</span> to compile the code, then you should be able to run the program by use the following commands:</p>
-				<xmp>make</xmp>
-				<xmp>./run</xmp>
-				<p>To run MPI version, after command <b>make</b>, copy file <span style="background-color: #E2F3F2">run</span> to directory <span style="background-color: #E2F3F2">/cloud</span>, then go to <span style="background-color: #E2F3F2">/cloud</span> and use the following command to run:</p>
-				<xmp >mpirun -np [number of nodes] -hosts master,node1... ./run</xmp>
-				<p>For example, to use 4 nodes, the command is:</p>
-				<xmp >mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</xmp>
-			<h2>Test Cases</h2>
-				<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases" style="color: blue">test cases</a>  are under the <span style="background-color: #E2F3F2">/test_cases</span> directory in our Github Repository.</p>
-				<p>
-				<span style="background-color: #E2F3F2">test16_1min.sdk</span>: a 16 x 16 sudoku problem, took 1 min to solve in serial version<br><br>
-			
-				<span style="background-color: #E2F3F2">test16_5min.sdk</span>: a 16 x 16 sudoku problem, took 5 min to solve in serial version<br><br>
+<div class="util">
+	<h1>How to Use our Program to Solve Giant Sudoku?</h1>
+	<h2 id="downloadsourcecode">Download Source Code</h2>
+	
+	<p>To run our sudoku solver, first download our 
+		<a href="https://github.com/shiyunqiu/CS205_Sudoku">source code and test cases</a>.
+	</p>
+	
+	<h2 id="setup">Set Up</h2>
+	<p>We adapted our code to AWS t2.2xlarge instances with Ubuntu 16.04.4 LTS. 
+		To set up an AWS cluster with OpenMP and MPI configured, we followed the guides provided by CS205: 
+		<a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf">OpenMP</a> 
+		and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf">MPI</a>. After the setup, you should have:
+	</p>
+	<ul>
+		<li>enabled passwordless ssh between any pair of cluster nodes with username <code>mpiuser</code></li>
+		<li>created the directory <code>/home/mpiuser/cloud</code> on the master node and shared it with all other nodes</li>
+		<li>configured the MPI environment using ports 10000-10100</li>
+		<li>installed <code>mpich</code></li>
+	</ul>
+	<p>In addition, as we use makefile to compile our code, you need to install <code>build-essential</code>. 
+		To nail this down, run the following command line on the master node:</p>
+	<pre><code>$ sudo apt-get install build-essential</code></pre>
+	
+	<h2 id="run">Run</h2>
+	<p>Upload our source code and test cases to the master node. You may use the following command lines:</p>
+	<pre><code>
+	$ scp -i [ssh key] &lt;parent directory&gt;/src/* mpiuser@&lt;master node public IP&gt;:~/cloud/src
+	$ scp -i [ssh key] &lt;parent directory&gt;/test_cases/* mpiuser@&lt;master node public IP&gt;:~/cloud/test_cases
+	</code></pre>
+	<p>Connect to your master node on AWS, log in as <code>mpiuser</code> and change directory to <code>cloud/src</code>. 
+		You can build the program with a command:</p>
+	<pre><code>$ make</code></pre>
+	<p>This creates an executable named <code>run</code>. By default it solves a relatively simple test case with serial 
+		algorithm. You may run our parallel implementations by uncommenting specific lines in <code>main.cpp</code>. 
+		We wrote the instructions in detail in the main function.</p>
+	<p>To run the serial solver, simply type</p>
+	<pre><code>$ ./run </code></pre>
+	<p>In your terminal. The OpenMP version can be executed in the same way. However, if you want to tune the 
+		number of threads, you can specify it as an environment variable:</p>
+	<pre><code>$ export OMP_NUM_THREADS=&lt;the number of threads you want&gt;</code></pre>
+	<p>To execute the MPI versions, you have to use the <code>mpirun</code> keyword:</p>
+	<pre><code>$ mpirun -np [number of processes] -hosts [list of hostnames] ./run</code></pre>
+	<p>For example, to use 4 nodes with 1 process per node, the command is like:</p>
+	<pre><code>$ mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</code></pre>
+	
+	<h2 id="testcases">Test Cases</h2>
+	<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases">test cases</a> are 
+		under the <code>test_cases</code> directory in our Github Repository. </p>
 
-				<span style="background-color: #E2F3F2">test16_15min.sdk</span>: a 25 x 25 sudoku problem, took 15 min to solve in serial version<br><br>
+	<p><code>test16_1min.sdk</code>: a 16 * 16 sudoku problem, took 1 min to solve in serial version</p>
 
-				<span style="background-color: #E2F3F2">test25_5min.sdk</span>: a 25 x 25 sudoku problem, took 5 min to solve in serial version<br><br>
+	<p><code>test16_5min.sdk</code>: a 16 * 16 sudoku problem, took 5 min to solve in serial version </p>
 
-				<span style="background-color: #E2F3F2">test25_15min.sdk</span>: a 25 x 25 sudoku problem, took 15 min to solve in serial version<br><br>
+	<p><code>test16_15min.sdk</code>: a 25 * 25 sudoku problem, took 15 min to solve in serial version</p>
 
-				<span style="background-color: #E2F3F2">test25_28min.sdk</span>: a 25 x 25 sudoku problem, took 28 min to solve in serial version<br><br>
+	<p><code>test25_5min.sdk</code>: a 25 * 25 sudoku problem, took 5 min to solve in serial version </p>
 
-				<span style="background-color: #E2F3F2">test36.sdk</span>: a 36 x 36 sudoku problem<br><br>
+	<p><code>test25_15min.sdk</code>: a 25 * 25 sudoku problem, took 15 min to solve in serial version </p>
 
-				<span style="background-color: #E2F3F2">test100.sdk</span>: a 100 x 100 sudoku problem<br><br>
+	<p><code>test25_28min.sdk</code>: a 25 * 25 sudoku problem, took 28 min to solve in serial version</p>
 
-				<span style="background-color: #E2F3F2">test144.sdk</span>: a 144 x 144 sudoku problem </p>
-
-
-
-      </div>
+</div>
