@@ -4,18 +4,18 @@ title: util
 ---
 
 <div class="util">
-	<h1>How to Use our Program to Solve Giant Sudoku?</h1>
-	<h2 id="downloadsourcecode">Download Source Code</h2>
+	<h1 style="font-family:Raleway; color:#00343f;">How to Use our Program to Solve Giant Sudoku?</h1>
+	<h2 id="downloadsourcecode" style="font-family:Raleway; color:#00343f;">Download Source Code</h2>
 	
 	<p>To run our sudoku solver, first download our 
-		<a href="https://github.com/shiyunqiu/CS205_Sudoku">source code and test cases</a>.
+		<a href="https://github.com/shiyunqiu/CS205_Sudoku" style="color: blue">source code and test cases</a>.
 	</p>
 	
-	<h2 id="setup">Set Up</h2>
+	<h2 id="setup" style="font-family:Raleway; color:#00343f;">Set Up</h2>
 	<p>We adapted our code to AWS t2.2xlarge instances with Ubuntu 16.04.4 LTS. 
 		To set up an AWS cluster with OpenMP and MPI configured, we followed the guides provided by CS205: 
-		<a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf">OpenMP</a> 
-		and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf">MPI</a>. After the setup, you should have:
+		<a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf" style="color: blue">OpenMP</a> 
+		and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf" style="color: blue">MPI</a>. After the setup, you should have:
 	</p>
 	<ul>
 		<li>enabled passwordless ssh between any pair of cluster nodes with username <code>mpiuser</code></li>
@@ -27,10 +27,9 @@ title: util
 		To nail this down, run the following command line on the master node:</p>
 	<pre><code>$ sudo apt-get install build-essential</code></pre>
 	
-	<h2 id="run">Run</h2>
+	<h2 id="run" style="font-family:Raleway; color:#00343f;">Run</h2>
 	<p>Upload our source code and test cases to the master node. You may use the following command lines:</p>
-	<pre><code>$ scp -i [ssh key] &lt;parent directory&gt;/src/* mpiuser@&lt;master node public IP&gt;:~/cloud/src<br>$ scp -i [ssh key] &lt;parent directory&gt;/test_cases/* mpiuser@&lt;master node public IP&gt;:~/cloud/test_cases
-	</code></pre>
+	<pre><code>$ scp -i [ssh key] &lt;parent directory&gt;/src/* mpiuser@&lt;master node public IP&gt;:~/cloud/src<br>$ scp -i [ssh key] &lt;parent directory&gt;/test_cases/* mpiuser@&lt;master node public IP&gt;:~/cloud/test_cases</code></pre>
 	<p>Connect to your master node on AWS, log in as <code>mpiuser</code> and change directory to <code>cloud/src</code>. 
 		You can build the program with a command:</p>
 	<pre><code>$ make</code></pre>
@@ -47,8 +46,8 @@ title: util
 	<p>For example, to use 4 nodes with 1 process per node, the command is like:</p>
 	<pre><code>$ mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</code></pre>
 	
-	<h2 id="testcases">Test Cases</h2>
-	<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases">test cases</a> are 
+	<h2 id="testcases" style="font-family:Raleway; color:#00343f;">Test Cases</h2>
+	<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases" style="color: blue">test cases</a> are 
 		under the <code>test_cases</code> directory in our Github Repository. </p>
 
 	<p><code>test16_1min.sdk</code>: a 16 * 16 sudoku problem, took 1 min to solve in serial version</p>
