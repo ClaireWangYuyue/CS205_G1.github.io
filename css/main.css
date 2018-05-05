@@ -11,7 +11,15 @@ div{
     /*width: 70%;*/
 }
 
-
+.container{
+    height: 70%;
+}
+.banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80%;
+}
 
 ul li {
     padding: 5px 0px;
@@ -30,7 +38,7 @@ a:hover {
 
 nav ul {
     /*font-family:'Helvetica', 'Arial', 'Sans-Serif';*/
-    font-family: 'Skranji',cursive;
+    font-family: 'Pangolin',cursive;
     padding: 0px;
     list-style: none;
     font-weight: bold;
@@ -128,19 +136,11 @@ footer ul li {
     position: fixed;
     background-color: #f1f1f1;
    bottom: 0;
-   font-size: 0.6em;
+   font-size: 0.7em;
    /*width: 100%;*/
    color: white;
    text-align: center;
    padding: 0px;
-   height: 10%;
+   height: 5%;
 }
-div .container{
-    height: 70%;
-}
-nav .banner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80%;
-}
+
