@@ -3,56 +3,75 @@ layout: default
 title: performance
 ---
 
-		<div>
-			<h1>Performance of Our Program</h1>
-			<p>What is the performance of your code? What speedup and efficiency did you achieve? What optimizations did you implement to achieve this speedup?</p>
-			<p class="subtitle">OpenMP Performance</p>
-				<table>
-					<tr>
-						<td style="font-size: 1.5em">16 x 16 Sudoku</td>
-						<td style="font-size: 1.5em">25 x 25 Sudoku</td>
-					</tr>
-			
-					<tr>
-						<td>
-							<img src="/CS205_G1.github.io/img/openmp_16.png" alt="omp_speedup16" width="80%">
-						</td>
-						<td>
-							<img src="/CS205_G1.github.io/img/openmp_25.png" alt="omp_speedup25" width="80%">
-						</td>
-			 		</tr>
-				</table>
-				<ul >
-							  <li>For complex Sudoku puzzles, we achieved linear speedup </li>
-							  <li>For easier problems, the speedup is slightly lower but still impressive</li>
-							</ul>
-			<p class="subtitle">MPI + OpenMP Performance</p>
-			<p class="plot_title"> Speedup of Shuffle vs No Shuffle</p>
-			<table>
-				<tr>
-					<td>
-						<img src="/CS205_G1.github.io/img/mpi_openmp_no_shuffle.jpeg" alt="mpi_speedup" width="90%">
-					</td>
-					<td>
-						<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle.jpeg" alt="mpi_speedup" width="90%">
-					</td>
-				</tr>
-			</table>
-				
-			<p class="plot_title"> Effect of Shuffling and Dynamic Scheduling</p>
-				<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle_compare.jpeg" alt="mpi_speedup" width="80%">
+<div>
+<h1>Performance of Our Program</h1>
+<p>What is the performance of your code? What speedup and efficiency did you achieve? What optimizations did you implement to achieve this speedup?</p>
+<p class="subtitle">OpenMP Performance</p>
+	<table>
+		<tr>
+			<td style="font-size: 1.2em">16 x 16 Sudoku</td>
+			<td style="font-size: 1.2em">25 x 25 Sudoku</td>
+		</tr>
+
+		<tr>
+			<td>
+				<img src="/CS205_G1.github.io/img/openmp_16.png" alt="omp_speedup16" width="80%">
+			</td>
+			<td>
+				<img src="/CS205_G1.github.io/img/openmp_25.png" alt="omp_speedup25" width="80%">
+			</td>
+		</tr>
+	</table>
+	<p> Our implementation for the OpenMP version achieves sublinear to linear speedup. Especially for 
+		complex Sudoku puzzles, the speedup is linear, which meets our expectation. For easier problems, 
+		the speedup is not as good, but still impressive. </p>
 	
-			<p class="subtitle">Conclusions</p>
-				<ul>
-					<li>The serial solver guarantees to find a solution but is very slow in terms of the execution time</li>
-					<li>The main difficulty in parallelizing the Sudoku solver is balancing the workload assigned 
-						to each worker</li>
-					<li>OpenMP with dynamic scheduling achieves sublinear to linear speedup </li>
-					<li>For MPI+OpenMP with static scheduling, shuffling the deque of boards before dispatching 
-						to each worker node greatly improves performance </li>
-					<li>Generally, we observed that dynamic scheduling yield the highest speedup</li>
-					<li>The speedup is not linear mostly due to the high communication costs between the nodes</li>
-					<li>Do not forget that we only have 7 worker nodes for dynamic scheduling. The master nodes
-						is constantly querying the status of the slave nodes and assign new jobs to the idle nodes.</li>
-				</ul>
-                  </div>
+<p class="subtitle">MPI + OpenMP Performance</p>
+<p class="plot_title"> Speedup of Shuffle vs No Shuffle</p>
+<table>
+	<tr>
+		<td>
+			<img src="/CS205_G1.github.io/img/mpi_openmp_no_shuffle.jpeg" alt="mpi_speedup" width="90%">
+		</td>
+		<td>
+			<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle.jpeg" alt="mpi_speedup" width="90%">
+		</td>
+	</tr>
+</table>
+	<p> Without shuffling, the speedup of MPI plus OpenMP version varies a lot. We observe high correlation 
+		between speedup and problem solving path, we will discuss it in detail in the last section on 
+		this page. Shuffling greatly improves the speedup. In the best case scenario, the speedup jumps 
+		from 31 to 52. </p>
+
+<p class="plot_title"> Effect of Shuffling and Dynamic Scheduling</p>
+	<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle_compare.jpeg" alt="mpi_speedup" width="80%">
+	<p> In general, we observed that dynamic scheduling without shuffling yields the highest speedup. 
+		Dynamic scheduling with shuffling is better than static scheduling with shuffling for 
+		simpler problems. Static scheduling with shuffling tends to perform well for complex problems.</p>
+
+<p class="subtitle">Discussion</p>
+	<p> Our serial solver guarantees to find a solution but is very slow in terms of the execution time. 
+		Achieving good speedup will help us to find solutions in a much shorter amount of time. 
+	</br>
+            The main difficulty in parallelizing the Sudoku solver is balancing the workload assigned to each 
+                worker. Our bootstrapping methods tends to push partially filled boards with similar solving 
+                complexity to nearby places in the deque. Therefore, it is very likely that some worker will 
+                finish the work faster than the others and becomes idle, which jeopardizes the performance of 
+                our parallelized solver. OpenMP can do load balancing rather easily by setting the running schedule
+                to dynamic. However, MPI does not have such functionality. In order to achieve similar effect, 
+                we first attempted to shuffle the deque of boards before dispatching to each worker node. It greatly
+                improves the performance but the speedup is still not ideal. We then implemented dynamic scheduling
+                for the MPI version by sacrificing our master node to constantly query the status of slave nodes.
+                The master node will assign new jobs to the slave nodes once it becomes idle. As you can see on
+                the plot above, MPI dynamic scheduling produces the best performance. Please do not forget that
+                essentially only 7 nodes are working in the dynamic scheduling case. It is very impressive that 
+                dynamic scheduling can outperform the other settings. The speedup is not linear mostly due to the 
+                high communication costs between the nodes. 
+        </br>
+           Adding shuffling to MPI dynamic scheduling slows our parallized solver. The main reason is that shuffling
+                and dynamic scheduling have similar functionalities. Dynamic scheduling already solved the problem
+                of load balancing, and shuffling cannot do much. Furthermore, it takes time to shuffle the deque, and
+                the shuffling can only be done in serial.
+	</p>
+	
+</div>
