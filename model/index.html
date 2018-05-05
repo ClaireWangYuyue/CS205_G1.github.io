@@ -20,7 +20,17 @@ title: model
 							correct values until it reaches a solution.</li>
 					</ul>
 				<li>Pseudocode</li>
-				<ul><li>
+				<xmp>
+				At the i-th empty cell on the board:
+					for all possible fill-ins:
+						fill the number
+						if this is the last empty cell:
+							return the solution
+						else:
+							search the (i+1)-th empty cell
+					return with no solution
+				</xmp>
+				<!-- <ul><li>
 				At the i-th empty cell on the board:<br>
 				&emsp;&emsp;For all possible fill-ins:<br>
 				&emsp;&emsp;&emsp;Fill the number<br>
@@ -29,7 +39,7 @@ title: model
 				&emsp;&emsp;&emsp;Else:<br>
 				&emsp;&emsp;&emsp;&emsp;Search the (i+1)-th empty cell<br>
 				&emsp;&emsp;Return with no solution<br>
-				</li></ul>
+				</li></ul> -->
 
 			</ul>
 		<p class="subtitle">OpenMP Version</p>
