@@ -7,7 +7,7 @@ body {
 div{
     margin-left:15%;
     padding:1px 16px;
-    height: 80%;
+    /*height: 80%;*/
     /*width: 70%;*/
 }
 
@@ -140,4 +140,6 @@ footer ul li {
    padding: 0px;
    height: 10%;
 }
-
+.container{
+    height: 80%;
+}
