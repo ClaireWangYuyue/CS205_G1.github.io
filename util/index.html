@@ -29,8 +29,7 @@ title: util
 	
 	<h2 id="run">Run</h2>
 	<p>Upload our source code and test cases to the master node. You may use the following command lines:</p>
-	<pre><code>$ scp -i [ssh key] &lt;parent directory&gt;/src/* mpiuser@&lt;master node public IP&gt;:~/cloud/src
-	$ scp -i [ssh key] &lt;parent directory&gt;/test_cases/* mpiuser@&lt;master node public IP&gt;:~/cloud/test_cases
+	<pre><code>$ scp -i [ssh key] &lt;parent directory&gt;/src/* mpiuser@&lt;master node public IP&gt;:~/cloud/src<br>$ scp -i [ssh key] &lt;parent directory&gt;/test_cases/* mpiuser@&lt;master node public IP&gt;:~/cloud/test_cases
 	</code></pre>
 	<p>Connect to your master node on AWS, log in as <code>mpiuser</code> and change directory to <code>cloud/src</code>. 
 		You can build the program with a command:</p>
