@@ -62,7 +62,7 @@ nav ul {
     text-align: center;
     background-color: #011935;
     position: fixed;
-    height: 60%;
+    height: 70%;
     top: 23%;
     font-size: 1.2em;
     /*overflow: auto;*/
@@ -90,10 +90,7 @@ nav li a:hover:not(.active) {
 
 
 }
-h1 {
-    font-size: 4em;
-    font-family:'Raleway';
-}
+
 p {
     font-family:'Raleway';
     font-size: 1.1em;
