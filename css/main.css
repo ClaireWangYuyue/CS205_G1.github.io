@@ -5,7 +5,8 @@ body {
 }
 
 div{
-    margin-left:15%;
+    width: 80%;
+    /*margin-left:15%;,*/
     /*padding:1px 16px;*/
     /*height: 80%;*/
     /*width: 70%;*/
@@ -38,7 +39,7 @@ a:hover {
 
 nav ul {
     /*font-family:'Helvetica', 'Arial', 'Sans-Serif';*/
-    font-family: 'Skranji',cursive;
+    font-family: 'Indie Flower',cursive;
     padding: 0px;
     list-style: none;
     font-weight: bold;
