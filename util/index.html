@@ -8,14 +8,14 @@ title: util
 	<h2 id="downloadsourcecode">Download Source Code</h2>
 	
 	<p>To run our sudoku solver, first download our 
-		<a href="https://github.com/shiyunqiu/CS205_Sudoku">source code and test cases</a>.
+		<a href="https://github.com/shiyunqiu/CS205_Sudoku" style="color: blue">source code and test cases</a>.
 	</p>
 	
 	<h2 id="setup">Set Up</h2>
 	<p>We adapted our code to AWS t2.2xlarge instances with Ubuntu 16.04.4 LTS. 
 		To set up an AWS cluster with OpenMP and MPI configured, we followed the guides provided by CS205: 
-		<a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf">OpenMP</a> 
-		and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf">MPI</a>. After the setup, you should have:
+		<a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf" style="color: blue">OpenMP</a> 
+		and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf" style="color: blue">MPI</a>. After the setup, you should have:
 	</p>
 	<ul>
 		<li>enabled passwordless ssh between any pair of cluster nodes with username <code>mpiuser</code></li>
@@ -47,7 +47,7 @@ title: util
 	<pre><code>$ mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</code></pre>
 	
 	<h2 id="testcases">Test Cases</h2>
-	<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases">test cases</a> are 
+	<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases" style="color: blue">test cases</a> are 
 		under the <code>test_cases</code> directory in our Github Repository. </p>
 
 	<p><code>test16_1min.sdk</code>: a 16 * 16 sudoku problem, took 1 min to solve in serial version</p>
