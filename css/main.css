@@ -19,7 +19,7 @@ div{
 .banner {
     position: fixed;
     top: 0;
-    width: 80%;
+    width: 85%;
     height: 30%;
 }
 
@@ -50,6 +50,7 @@ nav ul {
     background-color: #d8d8d8;
     position: fixed;
     height: 100%;
+    top: 15%;
     /*overflow: auto;*/
     /*float: left;*/
 }
@@ -59,6 +60,7 @@ nav li a {
     color: #000;
     padding: 8px 16px;
     text-decoration: none;
+    font-family: 'Indie Flower',cursive;
 }
 
 nav li a.active {
