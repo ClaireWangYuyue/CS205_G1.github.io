@@ -8,7 +8,7 @@ title: util
 			<h2> Download Source Code </h2>
 				<p>To run our sudoku solver, first download our <a href="https://github.com/shiyunqiu/CS205_Sudoku" style="color: blue">source code</a>.</p>
 			<h2>Set Up</h2>
-				<p>As our program requires OpenMP and MPI, we recommend using AWS to run our code. To set up OpenMP and MPI on AWS, we followed the guides provided by CS205: <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf" style="color: blue">OpenMP</a>  and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf" style="color: blue">MPI</a>.
+				<p>As our program requires OpenMP and MPI, we recommend using AWS to run our code. To set up OpenMP and MPI on AWS, we followed the guides provided by CS205: <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf" style="color: blue">OpenMP</a>  and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf" style="color:blue">MPI</a>.
 				<p>After connecting to the AWS instance, copy the source code and test cases from local to the AWS instance using the following command:</p>
 				<xmp>scp -i [key] [source code] [AWS Public IP]</xmp>
 				<p>For example, in our case, the command would be:</p>
@@ -17,15 +17,33 @@ title: util
 				<xmp>sudo apt-get install g++</xmp>
 				<xmp>sudo apt-get install build-essential</xmp>
 			<h2>Run</h2>
-				<p>We prepared a <b style="background-color: #f1f1f1">Makefile</b> to compile the code, then you should be able to run the program by use the following commands:</p>
+				<p>We prepared a <b style="background-color: #C7E8E7">Makefile</b> to compile the code, then you should be able to run the program by use the following commands:</p>
 				<xmp>make</xmp>
 				<xmp>./run</xmp>
-				<p>To run MPI version, after command <b>make</b>, copy file <b>run</b> to directory <b>cloud</b>, then go to <b>cloud</b> and use the following command to run:</p>
-				<xmp>mpirun -np [number of nodes] -hosts master,node1... ./run</xmp>
+				<p>To run MPI version, after command <b style="background-color: #C7E8E7">make</b>, copy file <b style="background-color: #C7E8E7">run</b> to directory <b style="background-color: #C7E8E7">cloud</b>, then go to <b style="background-color: #C7E8E7">cloud</b> and use the following command to run:</p>
+				<xmp >mpirun -np [number of nodes] -hosts master,node1... ./run</xmp>
 				<p>For example, to use 4 nodes, the command is:</p>
-				<xmp>mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</xmp>
+				<xmp style="background-color: #f1f1f1">mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</xmp>
 			<h2>Test Cases</h2>
 				<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases" style="color: blue">test cases</a>  are under the <b>test_cases</b> directory in our Github Repository.</p>
+				<p>
+				<span style="background-color: #C7E8E7">test16_1min.sdk</span>: a 16 * 16 sudoku problem, took 1 min to solve in serial version<br>
+			
+				test16_5min.sdk: a 16 * 16 sudoku problem, took 5 min to solve in serial version<br>
+
+				test16_15min.sdk: a 25 * 25 sudoku problem, took 15 min to solve in serial version<br>
+
+				test25_5min.sdk: a 25 * 25 sudoku problem, took 5 min to solve in serial version<br>
+
+				test25_15min.sdk: a 25 * 25 sudoku problem, took 15 min to solve in serial version<br>
+
+				test25_28min.sdk: a 25 * 25 sudoku problem, took 28 min to solve in serial version<br>
+
+				test36.sdk: a 36 * 36 sudoku problem<br>
+
+				test100.sdk: a 100 * 100 sudoku problem<br>
+
+				test144.sdk: a 144 * 144 sudoku problem </p>
 
 
 
