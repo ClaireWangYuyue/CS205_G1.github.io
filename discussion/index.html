@@ -6,7 +6,16 @@ title: Conclusion and Future Work
 <div class="discussion">
 	<h1> Conclusion </h1>
     <p>
-        In this project we designed, implemented and tested a spectrum of giant-sudoku solvers. The serial algorithm we used is a backtracking algorithm, based on which we derived our parallel algorithm using a queue scheme and implemented it with both OpenMP and MPI. We found that the main overhead of our parallelism comes from the extremely unbalanced workload of each queue elements. The OpenMP dynamic scheduling policy solves such problem perfectly and achieves sublinear to linear speedup. However, for MPI there is no built-in counterpart to the OpenMP dynamic scheduling policy. Therefore, we also added a shuffling strategy and our own dynamic scheduling policy to the MPI implementation. Our test result suggests that both shuffling and dynamic scheduling significantly improve the MPI speedup to sublinear level, but their combination doesn't seem to provide any further benefit and on the contrary increases the overhead.
+        In this project we designed, implemented and tested a spectrum of giant sudoku solvers. The serial 
+	    algorithm we used is backtracking algorithm, based on which we derived our parallel algorithm 
+	    using a queue scheme and implemented it with both OpenMP and MPI. We found that the main overhead 
+	    of our parallelism comes from the extremely unbalanced workload of each queue elements. The OpenMP 
+	    dynamic scheduling policy solves such problem perfectly and achieves sublinear to linear speedup. 
+	    However, for MPI there is no built-in counterpart to the OpenMP dynamic scheduling policy. Therefore, 
+	    we added a shuffling strategy and our own dynamic scheduling policy to the MPI implementation. 
+	    Our test result suggests that both shuffling and dynamic scheduling significantly improve the MPI 
+	    speedup to a sublinear level, but their combination doesn't seem to provide any further benefit 
+	    and on the contrary increases the overhead.
     </p>
 	<!--<p> What interesting insights did you gain from this project? Lesson learnt. goals achieved. blabla</p>-->
 			
