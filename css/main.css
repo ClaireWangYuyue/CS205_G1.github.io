@@ -24,7 +24,8 @@ div{
     position: fixed;
     background-image: url("/CS205_G1.github.io/img/gas-card-giveaway-web-banner-back-image.jpg");
     background-repeat: no-repeat;
-    background-position: 100% 80%;
+    background-position: 100% 60%;
+    text-align: center;
     top: 0;
     width: 90%;
     height: 20%;
