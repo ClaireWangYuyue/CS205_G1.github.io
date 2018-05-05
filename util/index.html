@@ -6,7 +6,7 @@ title: util
 		<div class="util">
 			<h1>How to Use our Program to Solve Giant Sudoku?</h1>
 			<h2> Download Source Code </h2>
-				<p>To run our sudoku solver, first download our <a href="https://github.com/shiyunqiu/CS205_Sudoku">source code</a>.</p>
+				<p>To run our sudoku solver, first download our <a href="https://github.com/shiyunqiu/CS205_Sudoku" style="color: blue">source code</a>.</p>
 			<h2>Set Up</h2>
 				<p>As our program requires OpenMP and MPI, we recommend using AWS to run our code. To set up OpenMP and MPI on AWS, we followed the guides provided by CS205: <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20Performance%20Optimization%20and%20OpenMP%20on%20AWS%20-%20v1.0.pdf">OpenMP</a>  and <a href="https://github.com/shiyunqiu/CS205_Sudoku/blob/master/documents/Harvard%20CS205%20-%20Spring%202018%20-%20Guide%20-%20MPI%20on%20AWS%20-%20v1.1.pdf">MPI</a>.
 				<p>After connecting to the AWS instance, copy the source code and test cases from local to the AWS instance using the following command:</p>
@@ -17,7 +17,7 @@ title: util
 				<xmp>sudo apt-get install g++</xmp>
 				<xmp>sudo apt-get install build-essential</xmp>
 			<h2>Run</h2>
-				<p>We prepared a <xmp>Makefile</xmp> to compile the code, then you should be able to run the program by use the following commands:</p>
+				<p>We prepared a <b>Makefile</b> to compile the code, then you should be able to run the program by use the following commands:</p>
 				<xmp>make</xmp>
 				<xmp>./run</xmp>
 				<p>To run MPI version, after command <xmp>make</xmp>, copy file <xmp>run</xmp> to directory <xmp>cloud</xmp>, then go to <xmp>cloud</xmp> and use the following command to run:</p>
@@ -25,8 +25,8 @@ title: util
 				<p>For example, to use 4 nodes, the command is:</p>
 				<xmp>mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</xmp>
 			<h2>Test Cases</h2>
-				<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases">test cases</a>  are under the <xmp>test_cases</xmp> directory in our Github Repository.</p>
-				
+				<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases" >test cases</a>  are under the <xmp>test_cases</xmp> directory in our Github Repository.</p>
+
 
 
       </div>
