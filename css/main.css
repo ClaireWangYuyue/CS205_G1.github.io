@@ -22,7 +22,7 @@ div{
 .banner {
     font-size: 2em;
     position: fixed;
-    background: url(/CS205_G1.github.io/img/gas-card-giveaway-web-banner-back-image.jpg)
+    background-image: url("/CS205_G1.github.io/img/gas-card-giveaway-web-banner-back-image.jpg")
     top: 0;
     width: 90%;
     height: 20%;
