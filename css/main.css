@@ -23,11 +23,11 @@ div{
     /*font-size: 2.5em;*/
     position: fixed;
     font-family: 'Raleway';
-    background-image: url("/CS205_G1.github.io/img/Black-And-Blue-wallpaper.png");
+    /*background-image: url("/CS205_G1.github.io/img/Black-And-Blue-wallpaper.png");
     background-repeat: no-repeat;
-    background-position: 100% 60%;
-    /*background-color: #3761bd;*/
-    color: #fff;
+    background-position: 100% 60%;*/
+    background-color: #1db0b8;
+    color: #00343f;
     text-align: center;
     top: 0;
     width: 90%;
@@ -60,7 +60,7 @@ nav ul {
     margin: 0;
     width: 18%;
     text-align: center;
-    background-color: #273982;
+    background-color: #011935;
     position: fixed;
     height: 80%;
     top: 23%;
@@ -73,7 +73,7 @@ nav ul {
 
 nav li a {
     display: block;
-    color: #5e79e6;
+    color: #37c6c0;
     padding: 8px 16px;
     text-decoration: none;
 }
