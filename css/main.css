@@ -54,7 +54,7 @@ nav ul {
     position: fixed;
     height: 100%;
     top: 15%;
-    font-size: 1.4em;
+    font-size: 1.2em;
     /*overflow: auto;*/
     /*float: left;*/
 }
@@ -81,7 +81,7 @@ nav li a:hover:not(.active) {
 }
 h1 {
     font-size: 4em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'Raleway';
 }
 p {
     font-size: 1.2em;
@@ -89,12 +89,12 @@ p {
     color: #000;
 }
 p.subtitle{
-    font-family: Tahoma;
+    font-family: 'Raleway';
     font-size: 1em;
 }
 
 p.plot_caption{
-    font-family: Tahoma;
+    font-family: 'Raleway';
     font-size: 1em;
 }
 
