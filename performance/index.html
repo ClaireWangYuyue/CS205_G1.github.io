@@ -5,7 +5,7 @@ title: performance
 
 <div>
 <h1 style="font-family:Raleway; color:#00343f;">Model Performance</h1>
-<p class="subtitle" >OpenMP Performance</p>
+<p class="subtitle" style = "color:#006a80" >OpenMP Performance</p>
 	<table>
 		<tr>
 			<td style="font-family:Raleway;font-size: 1.2em;">16 x 16 Sudoku</td>
@@ -27,7 +27,7 @@ title: performance
 		complex Sudoku puzzles, the speedup is linear, which meets our expectation. For easier problems, 
 		the speedup is not as good, but still impressive. </p>
 	
-<p class="subtitle">MPI + OpenMP Performance</p>
+<p class="subtitle" style = "color:#006a80">MPI + OpenMP Performance</p>
 <p class="plot_title"> Speedup of Shuffle vs No Shuffle</p>
 <table>
 	<tr>
@@ -54,7 +54,7 @@ title: performance
 		Dynamic scheduling with shuffling is better than static scheduling with shuffling for 
 		simpler problems. Static scheduling with shuffling tends to perform well for complex problems.</p>
 
-<p class="subtitle">Discussion</p>
+<p class="subtitle" style = "color:#006a80">Discussion</p>
 	<p> Our serial solver guarantees to find a solution but is very slow in terms of the execution time. 
 		Achieving good speedup will help us to find solutions in a much shorter amount of time. 
 	</br></br>
