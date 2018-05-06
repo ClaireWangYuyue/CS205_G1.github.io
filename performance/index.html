@@ -75,7 +75,7 @@ title: Model Performance
                 dynamic scheduling can outperform the other settings. The speedup is not linear mostly due to the 
                 high communication costs between the nodes. 
         </br></br>
-           Adding shuffling to MPI dynamic scheduling slows our parallized solver. The main reason is that shuffling
+           Adding shuffling to MPI dynamic scheduling slows our parallelized solver. The main reason is that shuffling
                 and dynamic scheduling have similar functionalities. Dynamic scheduling already solved the problem
                 of load balancing, and shuffling cannot do more. Furthermore, it takes time to shuffle the queue, and
                 the shuffling can only be done in serial.
