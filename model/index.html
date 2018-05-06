@@ -74,8 +74,16 @@ At the i-th empty cell on the board:
 	                <ul>
 				<li>Random shuffling: The queue of boards is shuffled before dispatching to each
 					node. This will make sure that the work load of each node is relatively
-					balanced, and no node waits a long time for other nodes to finish.</li>
-				<li>MPI Dynamic Scheduling: The master node and the slave nodes all keeps iterating throughout the process. However, within each iteration they do different jobs. A master-node iteration consists of a query to the slave-nodes status and a work assigment to the idle. A slave-node iteration consists of a report of idleness, a reception of the assigned work and the process of that work. Once the master node has assigned the last piece of work, it broadcasts the stopping message and wait till all slaves stop. Non-blocking MPI communication functionalities are applied to implement this feature.
+					balanced, and no node waits a long time for the other nodes to finish.</li>
+				<li>MPI Dynamic Scheduling: The master node and the slave nodes keep iterating 
+					throughout the process. During each iteration, they perform different jobs. 
+					The master node will constantly query the status of the slave nodes and assign
+					work to the idle ones. A slave node will work on the jobs it is assigned, and report 
+					whether or not it has finished all the previously assigned jobs to the master 
+					node when it is being queried. It will receive new tasks if it is idle. 
+					Once the master node has assigned the last piece of work, it broadcasts the 
+					stopping message and wait till all slaves stop. Non-blocking MPI communication 
+					functionalities are applied to implement this feature.
 	                </ul>
 	<p> Our documentation for the source code is on this page: <a href="/CS205_G1.github.io/documentation" style="color: blue">documentation</a>. 
 		Please click on the "Classes" tab to see the details of all classes we created.</p>
