@@ -81,7 +81,7 @@ At the i-th empty cell on the board:
 					work to the idle ones. A slave node will work on the jobs it is assigned, and report 
 					whether or not it has finished all the previously assigned jobs to the master 
 					node when it is being queried. It will receive new tasks if it is idle. 
-					Once the master node has assigned the last piece of work, it broadcasts the 
+					Once the master node has assigned the last piece of work, it will broadcast a 
 					stopping message and wait till all slaves stop. Non-blocking MPI communication 
 					functionalities are applied to implement this feature.
 	                </ul>
