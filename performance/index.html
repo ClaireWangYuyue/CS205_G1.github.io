@@ -47,7 +47,9 @@ title: performance
 		from 31 to 52. </p>
 
 <p class="plot_title" align = "center" style = "color:#006a80"> Effect of Shuffling and Dynamic Scheduling</p>
-	<img align = "middle" src="/CS205_G1.github.io/img/mpi_openmp_shuffle_compare.jpeg" alt="mpi_speedup" width="80%">
+	<div style="display: flex; justify-content: center;">
+		<img src="/CS205_G1.github.io/img/mpi_openmp_shuffle_compare.jpeg" alt="mpi_speedup" width="80%">
+	</div>
 	<p> We tested different settings of our MPI+OpenMP version Sudoku solver on 8 AWS t2.2xlarge 
 		instances. Each node has 8 threads. </p>
 	<p> In general, we observed that dynamic scheduling without shuffling yields the highest speedup. 
