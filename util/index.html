@@ -46,6 +46,23 @@ title: How to Use
 	<p>For example, to use 4 nodes with 1 process per node, the command is like:</p>
 	<pre><code>$ mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</code></pre>
 	
+	<h2 style="font-family:Raleway; color:#00343f;">Software Demonstration</h2>
+	<h3 style="font-family:Raleway; color:#00343f;">Main code customization for different versions</h3>
+	<p>Serial version</p
+	<img src="/CS205_G1.github.io/img/main_serial.png" alt="main_serial" width="90%">
+	<p>OpenMP version</p>
+	<img src="/CS205_G1.github.io/img/main_omp.png" alt="main_omp" width="90%">
+	<p>Static MPI + OpenMP (no shuffling) </p>
+	<img src="/CS205_G1.github.io/img/main_static_noshuffle.png" alt="main_static_noshuffle" width="90%">
+	<p>Static MPI + OpenMP (shuffling) </p>
+	<img src="/CS205_G1.github.io/img/main_static_shuffle.png" alt="main_static_shuffle" width="90%">
+	<p>Dynamic MPI + OpenMP (no shuffling) </p>
+	<img src="/CS205_G1.github.io/img/main_dynamic_noshuffle.png" alt="main_dynamic_noshuffle" width="90%">
+	<p>Dynamic MPI + OpenMP (shuffling) </p>
+	<img src="/CS205_G1.github.io/img/main_dynamic_shuffle.png" alt="main_dynamic_shuffle" width="90%">
+
+
+
 	<h2 id="testcases" style="font-family:Raleway; color:#00343f;">Test Cases</h2>
 	<p>All the <a href="https://github.com/shiyunqiu/CS205_Sudoku/tree/master/test_cases" style="color: blue">test cases</a> are 
 		under the <code>test_cases</code> directory in our Github Repository. </p>
