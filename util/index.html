@@ -44,14 +44,14 @@ title: How to Use
 	<li><code>output</code>: (string) the path to the solution output, defaults <code>./solutions.txt</code></li>
 
 	<li><code>mode</code>: (int) the mode to run, defaults 0. Options are
-		<ul style="font-family: Raleway; font-size: 1em">
-		<li>0 (or less): serial mode</li>
+		<ul>
+		<li class="mode">0 (or less): serial mode</li>
 
-		<li>1: parallel mode using OpenMP only</li>
+		<li class="mode">1: parallel mode using OpenMP only</li>
 
-		<li>2: parallel mode using MPI+OpenMP with static scheduling policy at MPI level</li>
+		<li class="mode">2: parallel mode using MPI+OpenMP with static scheduling policy at MPI level</li>
 
-		<li>3 (or greater): parallel mode using MPI+OpenMP with dynamic scheduling policy at MPI level</li>
+		<li class="mode">3 (or greater): parallel mode using MPI+OpenMP with dynamic scheduling policy at MPI level</li>
 		</ul>
 	</li>
 
