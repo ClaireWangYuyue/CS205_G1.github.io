@@ -33,18 +33,46 @@ title: How to Use
 	<p>Connect to your master node on AWS, log in as <code>mpiuser</code> and change directory to <code>cloud/src</code>. 
 		You can build the program with a command:</p>
 	<pre><code>$ make</code></pre>
-	<p>This creates an executable named <code>run</code>. By default it solves a relatively simple test case with serial 
-		algorithm. You may run our parallel implementations by uncommenting specific lines in <code>main.cpp</code>. 
-		We wrote the instructions in detail in the main function.</p>
-	<p>To run the serial solver, simply type</p>
-	<pre><code>$ ./run </code></pre>
-	<p>In your terminal. The OpenMP version can be executed in the same way. However, if you want to tune the 
-		number of threads, you can change the <code>THREAD_NUM</code> in the main.cpp or specify it as an environment variable:</p>
-	<pre><code>$ export OMP_NUM_THREADS=&lt;the number of threads you want&gt;</code></pre>
-	<p>To execute the MPI versions, you have to use the <code>mpirun</code> keyword:</p>
-	<pre><code>$ mpirun -np [number of processes] -hosts [list of hostnames] ./run</code></pre>
-	<p>For example, to use 4 nodes with 1 process per node, the command is like:</p>
-	<pre><code>$ mpirun -np 4 -hosts master,node1,node2,node3,node4 ./run</code></pre>
+	<p>This creates an executable named <code>run</code>. To execute the serial version of our Sudoku solver, the command line with full parameter list is:</p>
+	<pre><code>$ ./run [size] [input] [output] [mode] [number of 1st bootstrap] [number of 2nd bootstrap] [shuffle] [seed] </code></pre>
+	<p>Notation:</p>
+	<ul>
+	<li><code>size</code>: (int) the size of the sudoku board, defaults 16</li>
+
+	<li><code>input</code>: (string) the path to the problem input, defaults <code>../test_cases/test16_1min.sdk</code></li>
+
+	<li><code>output</code>: (string) the path to the solution output, defaults <code>./solutions.txt</code></li>
+
+	<li><code>mode</code>: (int) the mode to run, defaults 0. Options are
+		<ul>
+		<li>0 (or less): serial mode</li>
+
+		<li>1: parallel mode using OpenMP only</li>
+
+		<li>2: parallel mode using MPI+OpenMP with static scheduling policy at MPI level</li>
+
+		<li>3 (or greater): parallel mode using MPI+OpenMP with dynamic scheduling policy at MPI level</li>
+		</ul>
+	</li>
+
+	<li><code>number of 1st bootstrap</code>: (int) the first bootstrapping number for the parallel version, is ignored when <code>mode &lt;= 0</code>, defaults 512</li>
+
+	<li><code>number of 2nd bootstrap</code>: (int) the second bootstrapping number for the parallel version, is ignored when <code>mode &lt;= 1</code>, defaults 512</li>
+
+	<li><code>shuffle</code>: (bool) whether to shuffle the bootstrapping result at MPI level, is ignored when <code>mode &lt;= 1</code>, defaults 0</li>
+
+	<li><code>seed</code>: (int) the seed to randomize the above shuffling process, is ignored when <code>mode &lt;= 1</code>, defaults 0</li>
+	</ul>
+	<p>In addition, if you want to tune the number of threads for the OpenMP version, you can specify it as an environment variable:</p>
+
+	<pre><code>$ export OMP_NUM_THREADS=&lt;the number of threads you want&gt;
+	</code></pre>
+
+	<p>and in order to enable MPI functionalities, you have to use the <code>mpirun</code> keyword when executing <code>run</code>:</p>
+
+	<pre><code>$ mpirun -np [number of processes] -hosts [list of hostnames] ./run [list of parameters]
+	</code></pre>
+	
 	
 	<h2 style="font-family:Raleway; color:#00343f;">Software Demonstration</h2>
 	<h3 style="font-family:Raleway; color:#00343f;">Main code customization for different versions</h3>
