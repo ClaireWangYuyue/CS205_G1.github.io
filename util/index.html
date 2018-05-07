@@ -44,7 +44,7 @@ title: How to Use
 	<li><code>output</code>: (string) the path to the solution output, defaults <code>./solutions.txt</code></li>
 
 	<li><code>mode</code>: (int) the mode to run, defaults 0. Options are
-		<ul>
+		<ul style="font-family: Raleway; color: #00343f; font-size: 1em">
 		<li>0 (or less): serial mode</li>
 
 		<li>1: parallel mode using OpenMP only</li>
@@ -65,13 +65,11 @@ title: How to Use
 	</ul>
 	<p>In addition, if you want to tune the number of threads for the OpenMP version, you can specify it as an environment variable:</p>
 
-	<pre><code>$ export OMP_NUM_THREADS=&lt;the number of threads you want&gt;
-	</code></pre>
+	<pre><code>$ export OMP_NUM_THREADS=&lt;the number of threads you want&gt;</code></pre>
 
 	<p>and in order to enable MPI functionalities, you have to use the <code>mpirun</code> keyword when executing <code>run</code>:</p>
 
-	<pre><code>$ mpirun -np [number of processes] -hosts [list of hostnames] ./run [list of parameters]
-	</code></pre>
+	<pre><code>$ mpirun -np [number of processes] -hosts [list of hostnames] ./run [list of parameters]</code></pre>
 	
 	
 	<h2 style="font-family:Raleway; color:#00343f;">Software Demonstration</h2>
