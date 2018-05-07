@@ -39,7 +39,7 @@ title: How to Use
 	<p>To run the serial solver, simply type</p>
 	<pre><code>$ ./run </code></pre>
 	<p>In your terminal. The OpenMP version can be executed in the same way. However, if you want to tune the 
-		number of threads, you can specify it as an environment variable:</p>
+		number of threads, you can change the <code>THREAD_NUM</code> in the main.cpp or specify it as an environment variable:</p>
 	<pre><code>$ export OMP_NUM_THREADS=&lt;the number of threads you want&gt;</code></pre>
 	<p>To execute the MPI versions, you have to use the <code>mpirun</code> keyword:</p>
 	<pre><code>$ mpirun -np [number of processes] -hosts [list of hostnames] ./run</code></pre>
